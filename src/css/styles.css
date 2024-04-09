@@ -5,21 +5,169 @@
   |============================
 */
 @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
 
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+form {
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+input {
+  width: 250px;
+  height: 42px;
+  padding-left: 15px;
+  border-radius: 42px;
+  border: 2px solid #324b4e;
+  background: #f9f0da;
+  outline: none;
+  position: relative;
+  transition: 0.3s linear;
+}
+input:focus {
+  width: 300px;
+}
+
+button {
+  width: 100px;
+  height: 42px;
+  border: 2px solid #324b4e;
+  background: #324b4e;
+  align-content: center;
+  border-radius: 42px;
+  color: #f9f0da;
+}
+
+/* .gallery-div {
+  margin-top: 40px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.gallery-item {
+  max-width: calc((100% - 48px) / 3);
+  border: 2px solid #324b4e;
+  flex-direction: column;
+}
+
+.gallery-link {
+  display: block;
+}
+
+.gallery-image {
+  display: block;
+  max-width: 100%;
+  height: 300px;
+}
+
+.thumb-block {
+  background-color: #f9f0da;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  align-content: center;
+  gap: 30px;
+}
+
+.block {
+  margin-bottom: 10px;
+}
+
+.tittle {
   font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  margin-bottom: 5px;
+}
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+.amount {
+  font-size: 14px;
+  margin: 0;
+} */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+.gallery-div {
+  margin-top: 40px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.gallery-item {
+  width: calc((100% - 48px) / 3); /* Расчет ширины карточки */
+  margin-bottom: 24px; /* Добавляем отступ между строками */
+  height: auto;
+}
+
+.gallery-link {
+  display: block;
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 300px;
+}
+
+.thumb-block {
+  background-color: #f9f0da;
+  padding: 10px;
+}
+
+.block {
+  margin-bottom: 10px;
+}
+
+.tittle {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.amount {
+  font-size: 14px;
+  margin: 0;
+}
+
+.thumb-block {
+  display: flex;
+  gap: 30px;
+}
+
+.loader {
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.1s infinite ease;
+  transform: translateZ(0);
+}
+
+/*  */
+
+.loader {
+  border: 16px solid #f9f0da;
+  border-top: 16px solid #324b4e;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -60px;
+  margin-top: -60px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
