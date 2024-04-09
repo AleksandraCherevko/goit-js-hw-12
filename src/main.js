@@ -4,6 +4,7 @@ import { createMarkup } from './js/render-functions';
 import { fetchRequest } from './js/pixabay-api';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
+import axios from 'axios';
 
 const searchForm = document.querySelector('.js-form');
 const gallery = document.querySelector('.gallery');
@@ -56,3 +57,5 @@ function handleSubmit(event) {
       });
     });
 }
+
+// new function - PIXABAY
