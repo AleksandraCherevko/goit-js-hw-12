@@ -17,8 +17,6 @@ function handleSubmit(event) {
   event.preventDefault();
   gallery.innerHTML = '';
 
-  loader.style.display = 'block';
-
   const inputValue = event.currentTarget.querySelector('.search-input').value;
 
   fetchRequest(inputValue)
@@ -58,4 +56,43 @@ function handleSubmit(event) {
     });
 }
 
-// new function - PIXABAY
+// new function - пагинация
+const fetchPostsBtn = document.querySelector('.load-button');
+let page = 1;
+let limit = 15;
+
+fetchPostsBtn.addEventListener('click', async () => {
+  try {
+    const gallery = await fetchRequest();
+    createMarkup(arr);
+    page += 1;
+
+    if (page > 1) {
+      fetchPostsBtn.textContent = 'blablabla';
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+// const totalPages = Math.ceil(100 / limit);
+
+// fetchPostsBtn.addEventListener('click', async () => {
+//   if (page > totalPages) {
+//     return iziToast.error({
+//       title: 'Error',
+//       message: "We're sorry, but you've reached the end of search results",
+//     });
+//   }
+//   try {
+//     const post = await fetchRequest();
+//     createMarkup(arr);
+//     page += 1;
+
+//     if (page > 1) {
+//       fetchPostsBtn.textContent = 'Load more';
+//       // fetchPostsBtn.style.display = 'block';
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
