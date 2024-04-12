@@ -6,12 +6,17 @@
 */
 @import url('./reset.css');
 
+.container {
+  padding: 40px;
+}
+
 form {
   width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  margin-bottom: 40px;
 }
 input {
   width: 250px;
@@ -44,7 +49,7 @@ button:focus {
   background: #f9f0da;
   color: darkgray;
 }
-.load-btn {
+.btn-wrap {
   display: flex;
   justify-content: center;
 }

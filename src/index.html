@@ -7,26 +7,34 @@
     <title>Vanilla App Template</title>
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/modern-normalize@2.0.0/modern-normalize.min.css"
+    />
   </head>
   <body>
-    <section>
+    <div class="container">
       <form class="js-search search">
         <input class="input-search" name="search" type="text" />
         <button class="btn-search" type="submit">Search</button>
       </form>
 
-      <div class="container">
-        <span class="loader"></span>
-        <ul class="gallery"></ul>
-      </div>
+      <span class="loader"></span>
+      <ul class="gallery"></ul>
+
       <div class="container-loader">
         <span class="loader-more"></span>
-        <p class="end-loader">Bla</p>
-        <button class="btn-load load-button">load</button>
+        <p class="end-loader">
+          We're sorry, but you've reached the end of search results.
+        </p>
+        <div class="btn-wrap">
+          <button class="btn-load load-button">Load more</button>
+        </div>
       </div>
+    </div>
 
-      <a class="up-btn" href="#home"></a>
-    </section>
+    <a class="up-btn" href="#home"></a>
+
     <script type="module" src="./main.js"></script>
     <script type="module" src="./js/pixabay-api.js"></script>
     <script type="module" src="./js/render-functions.js"></script>

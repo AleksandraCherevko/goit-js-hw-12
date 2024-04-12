@@ -5,7 +5,6 @@ import { getPictures } from './js/pixabay-api';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 import axios from 'axios';
-import simpleLightbox from 'simplelightbox';
 
 const formSearch = document.querySelector('.js-search');
 const listImages = document.querySelector('.gallery');
@@ -14,7 +13,7 @@ const btnLoader = document.querySelector('.btn-load');
 const loaderMore = document.querySelector('.loader-more');
 const endLoader = document.querySelector('.end-loader');
 let currentPage = 1;
-const perPage = 40;
+const perPage = 15;
 let inputSearch = '';
 let simpleLightboxExem;
 
@@ -36,6 +35,9 @@ function onSearch(event) {
   loader.style.display = 'block';
   btnLoader.style.display = 'none';
   endLoader.style.display = 'none';
+
+  const getHeightImgCard = () =>
+    document.querySelector('.gallery-item').getBoundingClientRect();
 
   inputSearch = event.target.elements.search.value.trim();
 
@@ -130,36 +132,13 @@ function onLoadMore() {
 
       loaderMore.style.display = 'none';
       btnLoader.style.display = 'block';
+      smoothScrollTo(listImages);
     })
     .catch(error => console.log(error));
 }
 
-function scrollingTopPage() {
-  document.addEventListener('DOMContentLoaded', function () {
-    const upButton = document.querySelector('.up-btn');
-
-    upButton.addEventListener('click', function () {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-
-      document.body.classList.add('scrolling');
-    });
-
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 200) {
-        upButton.classList.add('show');
-      } else {
-        upButton.classList.remove('show');
-      }
-
-      if (
-        document.body.classList.contains('scrolling') &&
-        window.scrollY === 0
-      ) {
-        document.body.classList.remove('scrolling');
-      }
-    });
-  });
+function smoothScrollTo(element) {
+  const cardHeight = element.firstElementChild.getBoundingClientRect().height;
+  const scrollDistance = cardHeight * 2;
+  window.scrollBy({ top: scrollDistance, behavior: 'smooth' });
 }

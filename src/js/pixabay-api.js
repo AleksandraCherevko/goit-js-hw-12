@@ -2,17 +2,21 @@ import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-export async function getPictures(name, page) {
-  const API_KEY = '43242855-c6b7005837cbd7f2bbf3eb2ae';
+export { getPictures };
+
+const perPage = 15;
+
+async function getPictures(name, page) {
+  const KEY = '43242855-c6b7005837cbd7f2bbf3eb2ae';
 
   try {
-    if (name.includes('')) {
-      name.replace(/\s+/g, '+');
+    if (name.includes(' ')) {
+      name = name.replace(/\s+/g, '+'); // Замінюємо значення name
     }
 
     const response = await axios.get(`https://pixabay.com/api/`, {
       params: {
-        key: API_KEY,
+        key: KEY,
         q: name,
         image_type: 'photo',
         orientation: 'horizontal',
@@ -22,12 +26,11 @@ export async function getPictures(name, page) {
       },
     });
     return response;
-  } catch {
+  } catch (error) {
     iziToast.error({
       title: 'Error',
-      message:
-        'Sorry, there are no images matching your search query. Please try again!',
+      message: 'Sorry! The site is currently unavailable. Please try later!',
     });
-    console.log(error.message);
+    console.error(error.message);
   }
 }
