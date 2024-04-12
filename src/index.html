@@ -10,28 +10,22 @@
   </head>
   <body>
     <section>
+      <form class="js-search search">
+        <input class="input-search" name="search" type="text" />
+        <button class="btn-search" type="submit">Search</button>
+      </form>
+
       <div class="container">
-        <form class="js-form" action="submit">
-          <input
-            type="text"
-            placeholder="Search here..."
-            class="search-input"
-            autocomplete="off"
-            required
-          />
-          <button type="submit">Search</button>
-        </form>
-      </div>
-      <div class="loader"></div>
-      <div class="gallery-div">
+        <span class="loader"></span>
         <ul class="gallery"></ul>
       </div>
-      <div class="load-btn">
-        <span class="load-more"></span>
-        <p class="end-load"></p>
-        <button class="button load-button">Load more</button>
+      <div class="container-loader">
+        <span class="loader-more"></span>
+        <p class="end-loader">Bla</p>
+        <button class="btn-load load-button">load</button>
       </div>
-      <a class="up-btn" href="#home">Up</a>
+
+      <a class="up-btn" href="#home"></a>
     </section>
     <script type="module" src="./main.js"></script>
     <script type="module" src="./js/pixabay-api.js"></script>
